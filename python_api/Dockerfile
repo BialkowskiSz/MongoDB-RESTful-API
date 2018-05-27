@@ -19,7 +19,7 @@ COPY /server /server
 RUN pip install -r /server/requirements.txt
 
 # Expose necessary ports
-EXPOSE 5000
+EXPOSE 80
 
 # Select directory
 WORKDIR /server

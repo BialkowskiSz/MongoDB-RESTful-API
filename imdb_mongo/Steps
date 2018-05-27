@@ -7,3 +7,6 @@ Steps:
 3-	Allow Python to initialise DB:	curl localhost:5000/database/initialize
 
 UPDATE MONGO VERSION
+
+Mongo
+mongorestore -d imdb server/db/

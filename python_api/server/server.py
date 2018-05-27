@@ -29,7 +29,7 @@ db = ""
 
 def db_initialise():
     #   Connect to MongoDB
-    client = MongoClient()
+    client = MongoClient("imdb_mongo", 27017)
 
     #   Select IMDB collection
     global db

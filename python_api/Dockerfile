@@ -25,4 +25,4 @@ EXPOSE 5000
 WORKDIR /server
 
 # Run server
-ENTRYPOINT pypy server.py
+ENTRYPOINT python server.py

@@ -29,13 +29,13 @@ db = ""
 
 def db_initialise():
     #   Connect to MongoDB
-    client = MongoClient("imdb_mongo", 27017)
+    client = MongoClient("imdb_mongo_server", 27017)
 
     #   Select IMDB collection
-    global db
+    global db, db_initialise_check
     db      = client['imdb']
 
-    db_init_check = False
+    db_initialise_check = False
 
 
 

@@ -24,4 +24,4 @@ RUN chown `id -u` /data/db
 
 EXPOSE 27017
 
-ENTRYPOINT mongod
+ENTRYPOINT mongod --bind_ip_all

@@ -1,1 +1,1 @@
-mongorestore -d imdb server/db/
+mongorestore -d imdb server/mongoDump/db/

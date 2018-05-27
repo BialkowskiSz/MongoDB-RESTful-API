@@ -24,20 +24,12 @@ __license__     = "MIT"
     depending on parameters.
 """
 
-db_initialise_check = True
-db = ""
 
-def db_initialise():
-    #   Connect to MongoDB
-    client = MongoClient("imdb_mongo_server", 27017)
+#   Connect to MongoDB
+client = MongoClient("imdb_mongo_server", 27017)
 
-    #   Select IMDB collection
-    global db, db_initialise_check
-    db      = client['imdb']
-
-    db_initialise_check = False
-
-
+#   Select IMDB collection
+db      = client['imdb']
 
 
 #   Flask app
@@ -45,7 +37,7 @@ app = Flask(__name__)
 CORS(app)
 
 #   GLOBAL VARIABLES
-welcome = ["Welcome to my simple RESTful movie API.", {
+welcomingMessage = ["Welcome to my simple RESTful movie API.", {
     "endpoints": {
     "/movies": "Generates a random movie.",
     "/movies/title/title": "Selects specific movie using title. Title can include letters, numbers and dots.",
@@ -60,8 +52,7 @@ welcome = ["Welcome to my simple RESTful movie API.", {
     "/actors/id/id":"Selects specific actor details using ID, ID must only consist of positive integers."
     }
 }]
-welcomingMessage    = json.dumps(welcome)
-del welcome
+welcomingMessage    = json.dumps(welcomingMessage)
 
 max_ID_length       = 10
 min_release_year    = 1800
@@ -75,14 +66,6 @@ def allExceptionHandler(error):
     with open("errorlog", "a") as errorFile:
         print(error, file=errorFile)
     return("SERVER ERROR")
-
-
-#   Initialize database inside container
-@app.route("/database/initialize", methods=['GET'])
-def dbInit():
-    if db_initialise_check:
-        db_initialise()
-    return("Initialized.")
 
 
 #   Home

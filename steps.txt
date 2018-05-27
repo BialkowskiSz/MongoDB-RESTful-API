@@ -2,6 +2,9 @@ docker build -t imdb_mongo imdb_mongo/
 docker build -t python_api python_api/
 docker network create mongo_restful_network
 docker run -d --network mongo_restful_network --name imdb_mongo_server imdb_mongo
+docker exec -it <id> /bin/bash
+mongorestore -d imdb server/mongoDump/db/
+exit
 docker run -d -p 5000:5000 --network mongo_restful_network --name python_server python_api
 curl http://localhost:5000/database/initialize
 

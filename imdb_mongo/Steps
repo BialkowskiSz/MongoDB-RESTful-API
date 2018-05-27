@@ -1,12 +1,1 @@
-Steps:
-
-1-	Run MongoDB: 			mongod
-2-	^C to exit Mongo:		^C
-3.	Run MongoDB in background:	mongod --fork --syslog
-2-	Import Mongo collections: 	mongorestore -d imdb mongoDump/db/
-3-	Allow Python to initialise DB:	curl localhost:5000/database/initialize
-
-UPDATE MONGO VERSION
-
-Mongo
 mongorestore -d imdb server/db/

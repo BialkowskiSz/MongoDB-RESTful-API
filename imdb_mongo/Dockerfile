@@ -24,4 +24,6 @@ RUN chown `id -u` /data/db
 
 EXPOSE 27017
 
+RUN mongod --fork --logpath /var/log/mongodb.log && mongorestore -d imdb server/mongoDump/db/
+
 ENTRYPOINT mongod --bind_ip_all
